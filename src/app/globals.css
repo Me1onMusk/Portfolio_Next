@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 홈 */
+body {
+    @apply transition-colors duration-300;
+}
+
+/* 자격증 */
+
+/* 프로젝트 */
+
+/* 투두리스트 */
