@@ -63,15 +63,15 @@ export const applyMiddlewareSupabaseClient = async (request: NextRequest) => {
     return response;
   };
   
-  export async function middleware(request) {
+export async function middleware(request) {
     return await applyMiddlewareSupabaseClient(request);
-  }
+};
   
-  export const config = {
+export const config = {
     matcher: [
-      "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+        "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
     ],
-  };
+};
   
 /*
     목적: Next.js 애플리케이션에서 요청 및 응답을 처리하고 Supabase 클라이언트를 적용하기 위한 미들웨어
