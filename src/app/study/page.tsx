@@ -16,9 +16,8 @@ export default async function Page() {
     const notion = new NotionAPI();
     const recordMap = await notion.getPage(pageId);
 
-    if (!process.env.NOTION_DATABASE_ID) {
+    if (!process.env.NOTION_DATABASE_ID)
         throw new Error('데이터베이스 아이디가 없습니다.');
-    };
 
     return (
         <div className={styles.notion}>

@@ -4,15 +4,15 @@ import { NotionAPI } from 'notion-client';
 
 interface PageParams {
     pageId: string;
-}
+};
 
-export default async function NotionPage({ params }: { params: PageParams;}) {
+export default async function Page({ params }: { params: PageParams;}) {
     const notion = new NotionAPI();
-    const { pageId } = params;  // params를 비동기적으로 처리
  
-    if (!pageId) {
+    const { pageId } = await params;
+
+    if (!pageId)
         return <div>잘못된 페이지 ID입니다.</div>;
-    }
 
     try {
             const recordMap = await notion.getPage(pageId); // 세부 페이지 데이터 가져오기
