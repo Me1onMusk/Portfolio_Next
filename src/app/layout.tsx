@@ -31,13 +31,13 @@ export default async function RootLayout({children}: Readonly<{children: React.R
             </head> 
             <body className="bg-white dark:bg-slate-800">
                 <ReactQueryClientProvider>
-                <ThemeProvider attribute="class" defaultTheme="system">
-                    <AuthProvider accessToken={session?.access_token}>
-                        <Header accessToken={session?.access_token} session={session} />
-                        {children}
-                        <Footer /> 
-                    </AuthProvider>
-                </ThemeProvider>
+                    <ThemeProvider attribute="class" defaultTheme="system">
+                        <AuthProvider accessToken={session?.access_token}>
+                            <Header accessToken={session?.access_token} session={session} />
+                            {children}
+                            <Footer /> 
+                        </AuthProvider>
+                    </ThemeProvider>
                 </ReactQueryClientProvider>
             </body>
         </html>

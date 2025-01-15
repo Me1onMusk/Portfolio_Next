@@ -12,12 +12,16 @@ export default function Page() {
     const [ searchInput, setSearchInput ] = useState('');
     
     return (
-        <div className="container mx-auto flex px-5 py-24 pb-5 md:flex-row flex-col items-center">
-            <div className="flex-grow flex flex-col">
-                <Logo />
-                <SearchComponent />
+        <div className="container mx-auto flex px-5 py-20 pb-5 md:flex-row flex-col items-center">
+            <div className="w-full flex-grow flex flex-col">
+                <div className="flex justify-between mr-40">
+                    <Logo />
+                    <SearchComponent 
+                        searchInput={searchInput}
+                        setSearchInput={setSearchInput} />
+                </div>
                 <FileDragDropZone />
-                <DropboxImageList />
+                <DropboxImageList searchInput={searchInput} />
             </div>
         </div>
     );

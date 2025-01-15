@@ -10,9 +10,7 @@ export default function Logo() {
                 alt="Mini Dropbox Logo" 
                 width={50}
                 height={50}/>
-            <span className="text-xl font-bold">
-                DropBox
-            </span>
+            <span className="text-xl font-bold">DropBox</span>
         </div>
     );
 };
