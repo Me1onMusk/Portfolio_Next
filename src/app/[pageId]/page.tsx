@@ -2,13 +2,11 @@
 import Render from '@/components/notion/render';
 import { NotionAPI } from 'notion-client';
 
-interface fetchEachPagesProps {
-    params: {
-      pageId: string; // pageId 추출
-    };
-};
+interface PageParams {
+    pageId: string;
+}
 
-export default async function NotionPage({ params }: fetchEachPagesProps) {
+export default async function NotionPage({ params }: { params: PageParams;}) {
     const notion = new NotionAPI();
     const { pageId } = params;  // params를 비동기적으로 처리
  
