@@ -3,20 +3,34 @@
 
 import { NotionRenderer } from 'react-notion-x';
 
-import { Code } from 'react-notion-x/build/third-party/code'
-import { Collection } from 'react-notion-x/build/third-party/collection'
-import { Equation } from 'react-notion-x/build/third-party/equation'
-import { Modal } from 'react-notion-x/build/third-party/modal'
-import { Pdf } from 'react-notion-x/build/third-party/pdf'
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import Image from "next/image";
+import { ExtendedRecordMap } from 'notion-types';
 import "react-notion-x/src/styles.css";       //기본 스타일
 
-interface RendererProps {
-    recordMap: any; 
-    rootPageId: string;
+interface NotionPageProps {
+    recordMap: ExtendedRecordMap;
 };
 
-export default function Render({ recordMap, rootPageId  }: RendererProps) {
+export default function Render({ recordMap }: NotionPageProps) {
+
+    const Code = dynamic(
+        () => import('react-notion-x/build/third-party/code').then((m) => m.Code),
+        { ssr: false },
+    );
+    const Collection = dynamic(
+        () => import('react-notion-x/build/third-party/collection').then((m) => m.Collection),
+        { ssr: false },
+    );
+    const Equation = dynamic(
+        () => import('react-notion-x/build/third-party/equation').then((m) => m.Equation),
+        { ssr: false },
+    );
+    const Modal = dynamic(
+        () => import('react-notion-x/build/third-party/modal').then((m) => m.Modal),
+        { ssr: false },
+    )
 
     if (!recordMap) {
         return <div>Loading...</div>;
@@ -27,14 +41,16 @@ export default function Render({ recordMap, rootPageId  }: RendererProps) {
             <div className="container px-5 py-24 mx-auto border"> 
                 <NotionRenderer
                     components={{
+                        Code,
+                        Collection,
+                        Equation,
+                        Modal,
                         nextImage: Image,
-                        Code: Code,
-                        Collection: Collection,
+                        nextLink: Link,
                     }}
                     recordMap={recordMap}
                     fullPage={true}
                     darkMode={false}
-                    rootPageId={rootPageId}
                     disableHeader
                     previewImages />
             </div>

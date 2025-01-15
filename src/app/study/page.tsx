@@ -22,7 +22,7 @@ export default async function Page() {
 
     return (
         <div className={styles.notion}>
-            <Render recordMap={recordMap} rootPageId={pageId} />
+            <Render recordMap={recordMap} />
         </div>
     );
 };
