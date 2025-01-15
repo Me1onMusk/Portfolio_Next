@@ -78,8 +78,8 @@ export default function Header({ accessToken, session }) {
                 <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
                     <Link className="mr-5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" href={'/'}>홈</Link>
                     <Link className="mr-5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" href={'/about-me'}>소개</Link> 
-                    <Link className="mr-5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" href={'/about-me'}>정리</Link> 
                     <Link className="mr-5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" href={'/paper'}>자격증|수료증</Link>
+                    <Link className="mr-5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" href={'/study'}>정리</Link> 
                     <Link className="mr-5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" href={'/project'}>프로젝트</Link>
 
                     <div 
