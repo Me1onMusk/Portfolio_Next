@@ -2,15 +2,9 @@
 import { NotionAPI } from 'notion-client';
 import { Client } from '@notionhq/client';
  
-export const notion = new NotionAPI();
- 
-export async function getData(rootPageId: string) {
-    return await notion.getPage(rootPageId);
-};
+export const notionAPI = new NotionAPI();
 
-export const notionDatabase = new Client({
-    auth: process.env.NOTION_SECRET,
-});
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 const notionClient = new Client({
     auth: process.env.NOTION_API_KEY,
@@ -21,11 +15,27 @@ export async function getPosts() {
       database_id: process.env.NOTION_DATABASE_ID,
       sorts: [
             {
-                property: "period",      // 정렬의 기준이 될 데이터베이스 속성
-                direction: "descending", // 내림차순 : descending, 오름차순 : ascending 
+                property: "period",      
+                direction: "descending", 
             }
       ],
     });
   
+    return response.results;
+};
+
+// 데이터베이스 목록 가져오기
+export async function getDatabase(databaseId: string) {
+    const response = await notion.databases.query({
+      database_id: databaseId,
+    });
+    return response.results;
+};
+  
+  // 특정 페이지 블록 데이터 가져오기
+  export async function getPageBlocks(pageId: string) {
+    const response = await notion.blocks.children.list({
+      block_id: pageId,
+    });
     return response.results;
 };
