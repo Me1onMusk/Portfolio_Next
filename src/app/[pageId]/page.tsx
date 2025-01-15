@@ -10,7 +10,7 @@ interface fetchEachPagesProps {
 
 export default async function NotionPage({ params }: fetchEachPagesProps) {
     const notion = new NotionAPI();
-    const { pageId } = await params;  // params를 비동기적으로 처리
+    const { pageId } = params;  // params를 비동기적으로 처리
  
     if (!pageId) {
         return <div>잘못된 페이지 ID입니다.</div>;
