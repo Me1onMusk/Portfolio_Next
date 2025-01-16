@@ -7,7 +7,10 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from "next/image";
 import { ExtendedRecordMap } from 'notion-types';
-import "react-notion-x/src/styles.css";       //기본 스타일
+
+import "react-notion-x/src/styles.css";         //기본 스타일
+import 'prismjs/themes/prism-tomorrow.css';     //코드 하이라이트 스타일용 (선택)
+import 'katex/dist/katex.min.css';              //공식등 수학적 기호 스타일용 (선택)
 
 interface NotionPageProps {
     recordMap: ExtendedRecordMap;
@@ -37,20 +40,22 @@ export default function Render({ recordMap }: NotionPageProps) {
 
     return(
         <div className="container px-5 py-24 mx-auto"> 
-            <NotionRenderer
-                components={{
-                    Code,
-                    Collection,
-                    Equation,
-                    Modal,
-                    nextImage: Image,
-                    nextLink: Link,
-                }}
-                recordMap={recordMap}
-                fullPage={true}
-                darkMode={false}
-                disableHeader
-                previewImages />
+            <div className='notion__container'>
+                <NotionRenderer
+                    components={{
+                        Code,
+                        Collection,
+                        Equation,
+                        Modal,
+                        nextImage: Image,
+                        nextLink: Link,
+                    }}
+                    recordMap={recordMap}
+                    fullPage={true}
+                    darkMode={false}
+                    disableHeader
+                    previewImages />
+            </div>
         </div>
     );
 };
