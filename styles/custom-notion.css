@@ -1,0 +1,41 @@
+
+/* Notion 페이지의 기본 텍스트 스타일 오버라이드 */
+.notion-page-block {
+    font-family: 'Arial', sans-serif;  /* 기본 폰트를 Arial로 변경 */
+    font-size: 16px; /* 텍스트 크기 변경 */
+    line-height: 1.8; /* 줄 간격 조정 */
+}
+
+/* Notion 내의 링크 스타일 변경 */
+.notion-page-block a {
+    color: #ff6347; /* 링크 색상 오버라이드 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.notion-page-block a:hover {
+    color: #ff4500; /* 호버 시 색상 변경 */
+}
+
+/* 테이블 스타일 커스터마이징 */
+.notion-table {
+    border: 1px solid #ccc; /* 테이블 경계선 색상 */
+}
+
+.notion-table th, .notion-table td {
+    padding: 8px;
+    border: 1px solid #ddd; /* 셀 경계선 색상 */
+}
+
+.notion {
+    overflow: hidden !important; /* 모든 스크롤 제거 */
+    max-height: unset !important; /* 콘텐츠 높이 제한 해제 */
+  }
+  
+  /* 개별 요소의 기본 스크롤 제거 */
+.notion-page-content {
+    overflow: hidden !important;
+}
+  
+.notion-viewport {
+    overflow: hidden !important;
+}

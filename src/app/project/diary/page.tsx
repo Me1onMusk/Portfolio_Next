@@ -8,7 +8,7 @@ import Header from "@/components/diary/header";
 export default function Page() {
 
     const onClick = () => {
-
+        
     };
 
     return (

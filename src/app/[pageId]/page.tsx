@@ -1,12 +1,7 @@
 
 import Render from '@/components/notion/render';
-import { NotionAPI } from 'notion-client';
-
-// interface PageParams {
-//     params: {
-//         pageId: string;
-//     };
-// };
+import { NotionAPI } from 'notion-client'; 
+import 'react-notion-x/src/styles.css';         //notion 테마 스타일링 (필수)
 
 const Page = async({ params }: { params: Promise<{ pageId: string }> }) => {
     

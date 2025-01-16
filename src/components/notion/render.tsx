@@ -36,23 +36,21 @@ export default function Render({ recordMap }: NotionPageProps) {
         return <div>Loading...</div>;
 
     return(
-        <div className="notion__container">
-            <div className="container px-5 py-24 mx-auto border"> 
-                <NotionRenderer
-                    components={{
-                        Code,
-                        Collection,
-                        Equation,
-                        Modal,
-                        nextImage: Image,
-                        nextLink: Link,
-                    }}
-                    recordMap={recordMap}
-                    fullPage={true}
-                    darkMode={false}
-                    disableHeader
-                    previewImages />
-            </div>
-        </div> 
+        <div className="container px-5 py-24 mx-auto"> 
+            <NotionRenderer
+                components={{
+                    Code,
+                    Collection,
+                    Equation,
+                    Modal,
+                    nextImage: Image,
+                    nextLink: Link,
+                }}
+                recordMap={recordMap}
+                fullPage={true}
+                darkMode={false}
+                disableHeader
+                previewImages />
+        </div>
     );
 };
