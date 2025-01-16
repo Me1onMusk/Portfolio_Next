@@ -1,21 +1,23 @@
 
 import Render from '@/components/notion/render';
 import { NotionAPI } from 'notion-client';
-import { GetServerSidePropsContext } from 'next';
 
 interface PageParams {
-    pageId: string;
+    params: {
+        pageId: string;
+    };
 };
 
-export default async function Page({ params }: GetServerSidePropsContext<{ pageId: string }>) {
+export default async function Page({ params }: Promise<PageParams>) {
     const notion = new NotionAPI();
  
-    const { pageId } = params || {};     //params가 비어 있을 가능성 처리
+    // const { pageId } = params;
 
-    if (!pageId)
-        return <div>잘못된 페이지 ID입니다.</div>;
+    // if (!pageId)
+    //     return <div>잘못된 페이지 ID입니다.</div>;
 
     try {
+            const { pageId } = await params;
             const recordMap = await notion.getPage(pageId); // 세부 페이지 데이터 가져오기
             
             return <Render recordMap={recordMap} />;  //데이터를 Render 컴포넌트에 전달
