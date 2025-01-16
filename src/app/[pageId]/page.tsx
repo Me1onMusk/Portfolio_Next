@@ -10,7 +10,7 @@ interface PageParams {
 export default async function Page({ params }: GetServerSidePropsContext<{ pageId: string }>) {
     const notion = new NotionAPI();
  
-    const { pageId } = await params;
+    const { pageId } = params || {};     //params가 비어 있을 가능성 처리
 
     if (!pageId)
         return <div>잘못된 페이지 ID입니다.</div>;
