@@ -15,9 +15,9 @@ export default function Page() {
         <div className="container mx-auto flex flex-col items-center justify-center">
             <div className="container">
                 <Header 
-                    leftChild={<Button text={'<'} onClick={onClick} />}
+                    leftChild={<Button text={'<'} type={''} onClick={onClick} />}
                     title={'연도'}
-                    rightChild={<Button text={'>'} onClick={onClick} />}>
+                    rightChild={<Button text={'>'} type={''} onClick={onClick} />}>
                 </Header>
                 <DiaryList />
             </div>
