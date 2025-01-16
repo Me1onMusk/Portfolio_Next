@@ -1,5 +1,5 @@
 
-
+'use client';
 
 export default function Button({text, type, onClick}) {
     return(

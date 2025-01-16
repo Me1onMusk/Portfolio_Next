@@ -1,10 +1,26 @@
 
+'use client';
 
+import Button from "@/components/diary/button";
+import DiaryList from "@/components/diary/diary-list";
+import Header from "@/components/diary/header";
 
 export default function Page() {
+
+    const onClick = () => {
+
+    };
+
     return (
-        <div>
-            다이어리
+        <div className="container mx-auto flex flex-col items-center justify-center">
+            <div className="container">
+                <Header 
+                    leftChild={<Button text={'<'} onClick={onClick} />}
+                    title={'연도'}
+                    rightChild={<Button text={'>'} onClick={onClick} />}>
+                </Header>
+                <DiaryList />
+            </div>
         </div>
     );
 };

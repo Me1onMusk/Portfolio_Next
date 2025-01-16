@@ -32,9 +32,8 @@ export default function Render({ recordMap }: NotionPageProps) {
         { ssr: false },
     )
 
-    if (!recordMap) {
+    if (!recordMap)
         return <div>Loading...</div>;
-    };
 
     return(
         <div className="notion__container">
