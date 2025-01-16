@@ -1,12 +1,13 @@
 
 import Render from '@/components/notion/render';
 import { NotionAPI } from 'notion-client';
+import { GetServerSidePropsContext } from 'next';
 
 interface PageParams {
     pageId: string;
 };
 
-export default async function Page({ params }: { params: PageParams;}) {
+export default async function Page({ params }: GetServerSidePropsContext<{ pageId: string }>) {
     const notion = new NotionAPI();
  
     const { pageId } = await params;
