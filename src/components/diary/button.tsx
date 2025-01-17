@@ -3,10 +3,10 @@
 
 export default function Button({text, type, onClick}) {
     return(
-        <button
+        <button 
             onClick={onClick} 
-            className={`Button Button_${type}`}>
+            className={`border bg-blue-300 p-2 rounded-lg Button Button_${type}`}>
             {text}
-        </button>
-    );
-};
+        </button> 
+    ); 
+}; 
