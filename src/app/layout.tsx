@@ -2,7 +2,6 @@
 import type { Metadata } from "next"; 
 import "./globals.css"; 
 import { ThemeProvider } from "next-themes"; 
-// import { ThemeProvider } from "../config/material-tailwind-theme-provider";
 import Header from "@/components/main/header"; 
 import Footer from "@/components/main/footer"; 
 import { createServerSupabaseClient } from "@/utils/supabase/server";  

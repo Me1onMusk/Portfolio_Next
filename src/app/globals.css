@@ -12,3 +12,24 @@ body {
 /* 프로젝트 */
 
 /* 투두리스트 */
+
+/* .notion-collection {
+    color: white !important;
+}
+
+.notion-page-scroller {
+    background-color: #1c2c3c!important;
+    color: white!important;
+}
+
+.notion-collection-page-properties{
+    background-color: white!important;
+}
+
+.notion-code::-webkit-scrollbar {
+    display: none;
+}; */
+
+.notion.notion-dark .notion-page-content{
+    background-color: green !important;
+};

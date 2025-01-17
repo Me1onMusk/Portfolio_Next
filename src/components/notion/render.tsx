@@ -52,8 +52,8 @@ export default function Render({ recordMap }: NotionPageProps) {
                     }}
                     recordMap={recordMap}
                     fullPage={true}
-                    darkMode={false}
-                    disableHeader
+                    darkMode={true}
+                    // disableHeader
                     previewImages />
             </div>
         </div>
