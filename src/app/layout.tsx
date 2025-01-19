@@ -17,7 +17,7 @@ export default async function RootLayout({children}: Readonly<{children: React.R
 
     const supabase = await createServerSupabaseClient();
     const { data: {session} } = await supabase.auth.getSession();
-
+    
     return (
         <html lang="en">
             <head>

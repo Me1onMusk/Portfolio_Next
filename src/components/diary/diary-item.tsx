@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function DiaryItem() {
     return( 
         <div className="flex gap-14 justify-center border items-center rounded-lg"> 
-            <div className="border"> 
+            <div className=""> 
                 <img 
                     className="h-20"
                     src={getEmotionImage(1).src} />
@@ -14,7 +14,7 @@ export default function DiaryItem() {
             <div
                 onClick={ () => {} }
                 className=''>
-                <div className="border">
+                <div className="">
                     { new Date().toLocaleDateString() }
                 </div>
                 <div>
