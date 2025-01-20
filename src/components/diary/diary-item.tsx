@@ -9,7 +9,7 @@ export default function DiaryItem() {
             <div className=""> 
                 <img 
                     className="h-20"
-                    src={getEmotionImage(1).src} />
+                    src={ getEmotionImage(1).src } />
             </div> 
             <div
                 onClick={ () => {} }

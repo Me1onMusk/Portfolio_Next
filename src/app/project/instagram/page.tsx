@@ -12,13 +12,9 @@ export default async function Page() {
         <div className="container mx-auto">
             <div>
                 {
-                    session?.user ?
-                    (
-                        <MainLayout user={session?.user} />
-                    ) : 
-                    (
-                        <Auth path={'insta'} />
-                    )
+                    session?.user ? 
+                    (<MainLayout user={session?.user} />) : 
+                    (<Auth path={'insta'} />)
                 }
             </div>
         </div>

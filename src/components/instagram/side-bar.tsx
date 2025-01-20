@@ -12,13 +12,13 @@ export default function SideBar() {
                     <Link href={'/project/instagram'}> 
                         <Home className='text-2xl mb-10' />
                     </Link>
-                    <Link href={'/project/instagram'}>
+                    <Link href={'/project/instagram/people'}>
                         <People className='text-2xl' />
                     </Link>
-                    <Link href={'/project/instagram'}>
+                    <Link href={'/project/instagram/discover'}>
                         <Search className='text-2xl' />
                     </Link>
-                    <Link href={'/project/instagram'}>
+                    <Link href={'/project/instagram/chat'}>
                         <Send className='text-2xl' />
                     </Link>
                 </div>
