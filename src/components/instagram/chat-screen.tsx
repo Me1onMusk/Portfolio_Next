@@ -1,9 +1,7 @@
 
 'use client';
 
-import Person from "../instagram/person";
 import { useIdStore, useIndexStore, usePresenceState } from "@/utils/zustand/store";
-import Message from "./Message";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getUserById } from "@/app/actions/chatActions";
