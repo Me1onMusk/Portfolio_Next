@@ -1,4 +1,6 @@
 
+'use client';
+
 import { createBrowserSupabaseClient } from "@/utils/supabase/client";
 import { useIdStore, useIndexStore, usePresenceState } from "@/utils/zustand/store";
 import { getAllUsers } from "@/app/actions/chatActions";

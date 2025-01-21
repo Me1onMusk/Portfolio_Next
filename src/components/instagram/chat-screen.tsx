@@ -123,7 +123,8 @@ export default function ChatScreen() {
                 <div>
                 </div>
                 <div>
-                    <input 
+                    <input
+                        className="border rounded-lg pl-2 items-center justify-center"
                         placeholder="메세지 입력"/>
                     <button
                         onClick={() => {}}>
