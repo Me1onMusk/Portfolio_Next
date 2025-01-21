@@ -1,19 +1,31 @@
 
-import Link from "next/link"; 
+
 
 export default function Page() {
+
+    // 메타 데이터 // 
+
+    // 모든 책 출력 함수 // 
+    async function AllBooks() {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`);
+    };
+
+    // 추천 책 출력 함수 // 
+    async function RecommandBooks() {
+
+    };
+
     return (
-        <div className="container mx-auto flex flex-col items-center justify-center">
-            <header className='text-2xl'>
-                <Link href={'/project/bookstore'}>📚OneBite Books</Link>
-            </header>
-            <main>
+        <div className="container flex-col items-center justify-center">
+            <section> 
+                <h3 className="flex justify-start text-xl">📖지금 추천하는 도서</h3> 
+                <RecommandBooks />
+            </section>
             
-            </main>
-            <footer className="text-sm">
-                <div>제작 @김태영</div>
-                <div>0개의 도서가 등록되어 있습니다</div>
-            </footer>
+            <section>
+                <h3 className="flex justify-start text-xl">📖등록된 모든 도서</h3> 
+                <AllBooks />
+            </section>
         </div>
     );
 };
