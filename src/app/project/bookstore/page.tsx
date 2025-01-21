@@ -19,12 +19,10 @@ export default function Page() {
         <div className="container flex-col items-center justify-center">
             <section> 
                 <h3 className="flex justify-start text-xl">📖지금 추천하는 도서</h3> 
-                <RecommandBooks />
             </section>
             
             <section>
                 <h3 className="flex justify-start text-xl">📖등록된 모든 도서</h3> 
-                <AllBooks />
             </section>
         </div>
     );

@@ -1,5 +1,10 @@
 
 import { getRandomImage } from "@/utils/instagram/random";
+import TimeAgo from "javascript-time-ago";
+import ko from "javascript-time-ago/locale/ko";
+
+TimeAgo.addDefaultLocale(ko);
+const timeAgo = new TimeAgo('ko-KR');
 
 export default function Person({ 
     index,
@@ -15,7 +20,7 @@ export default function Person({
             <img 
                 src={getRandomImage(index)} />
             <div>
-                
+
             </div>
         </div>
     );

@@ -99,15 +99,41 @@ export default function ChatScreen() {
         }
     });
 
+    // 처음 시작 시 //
+    useEffect(() => {
+        const channel = supabase
+            .channel('message_change')
+            .on('postgres_changes', {
+                event: 'INSERT',
+                schema: 'public',
+                table: 'message'
+            },
+            (payload) => {
+                if(payload.eventType === 'INSERT' && !payload.errors)
+                    getAllMessageQuery.refetch(); 
+            }).subscribe()
+
+        return () => { channel.unsubscribe() };
+    }, []);
+
     return(
         selectedUserQuery.data !== null ? 
         (
-            <>
-            </>
+            <div>
+                <div>
+                </div>
+                <div>
+                    <input 
+                        placeholder="메세지 입력"/>
+                    <button
+                        onClick={() => {}}>
+                        {
+                            
+                        }
+                    </button>
+                </div>
+            </div>
         ) : 
-        (
-            <>
-            </>
-        )
+        (<div></div>)
     );
 };
