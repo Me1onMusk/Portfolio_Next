@@ -9,7 +9,7 @@ import { getStringDate } from "@/utils/diary/getStringedDate";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function Page({ initDate, onSubmit }) { 
+export default function Page() { 
 
     const router = useRouter(); 
     const [ input, setInput ] = useState({
@@ -19,7 +19,7 @@ export default function Page({ initDate, onSubmit }) {
     }); 
 
     const onClickSubmitButton = () => {
-        onSubmit(input); 
+        
     };
 
     // 날짜 넣기 // 
