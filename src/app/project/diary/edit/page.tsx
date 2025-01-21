@@ -9,7 +9,7 @@ import { getStringDate } from "@/utils/diary/getStringedDate";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function Page({ onSubmit }) { 
+export default function Page() { 
 
     const router = useRouter(); 
     const [ input, setInput ] = useState({
@@ -19,7 +19,7 @@ export default function Page({ onSubmit }) {
     }); 
 
     const onClickSubmitButton = () => {
-        onSubmit(input); 
+        
     };
 
     // 날짜 넣기 // 
@@ -37,8 +37,8 @@ export default function Page({ onSubmit }) {
     return (
         <div className="container w-fit mx-auto p-20 flex flex-col items-center justify-center gap-2">  
             <Header 
-                leftChild={<Button text={'<뒤로 가기'} type={''} onClick={ () => router.back() } />} 
-                title={'새 일기 쓰기'} 
+                leftChild={ <Button text={'<뒤로 가기'} type={''} onClick={ () => router.back() } /> } 
+                title={ '새 일기 쓰기' } 
                 rightChild={''} > 
             </Header>   
             <section className="flex w-full flex-col mb-10 gap-5 justify-center"> 
@@ -80,12 +80,12 @@ export default function Page({ onSubmit }) {
             <section className="flex flex-row gap-5">
                 <Button 
                     onClick={ () => router.back() }
-                    text={'취소하기'} 
-                    type={'NEGATIVE'} />
+                    text={ '취소하기' } 
+                    type={ 'NEGATIVE' } />
                 <Button
                     onClick={ onClickSubmitButton } 
-                    text={'작성완료'} 
-                    type={'POSITIVE'} />
+                    text={ '작성완료' } 
+                    type={ 'POSITIVE' } />
             </section>
         </div>
     );

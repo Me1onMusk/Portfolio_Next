@@ -15,9 +15,9 @@ export default function Page() {
         <div className="container w-full mx-auto p-20 flex flex-col items-center justify-center">
             <div>
                 <Header 
-                    leftChild={<Button text={'<'} type={''} onClick={onClick} />} 
-                    title={new Date().toLocaleDateString()} 
-                    rightChild={<Button text={'>'} type={''} onClick={onClick} />} > 
+                    leftChild={ <Button text={'<'} type={''} onClick={ onClick } /> } 
+                    title={ new Date().toLocaleDateString() } 
+                    rightChild={ <Button text={'>'} type={''} onClick={ onClick } /> } > 
                 </Header>
                 <DiaryList />
             </div>
