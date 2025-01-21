@@ -1,15 +1,16 @@
 
-'use client';
+'use client'; 
 
-import { useIdStore, useIndexStore, usePresenceState } from "@/utils/zustand/store";
-import { useEffect, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { getUserById } from "@/app/actions/chatActions";
-import { Spinner } from "@material-tailwind/react";
-import { createBrowserSupabaseClient } from "@/utils/supabase/client";
+import { useIdStore, useIndexStore, usePresenceState } from "@/utils/zustand/store"; 
+import { useEffect, useState } from "react"; 
+import { useMutation, useQuery } from "@tanstack/react-query"; 
+import { getUserById } from "@/app/actions/chatActions"; 
+import { createBrowserSupabaseClient } from "@/utils/supabase/client"; 
+import Person from "./person";  
+import Message from "./message"; 
 
 // 메세지 보내기 //
-export async function sendMessage({ message, chatUserId }) {
+export async function sendMessage({ message, chatUserId }) { 
     const supabase = createBrowserSupabaseClient();
     const {
         data: { session },
@@ -120,8 +121,22 @@ export default function ChatScreen() {
         selectedUserQuery.data !== null ? 
         (
             <div>
+                <Person 
+                    index={selectedUserIndex}
+                    name={selectedUserQuery.data?.email?.split('@')?.[0]}
+                    isActive={false}
+                    onChatScreen={false}
+                    onlineAt={presence?.[selectedUserId]?.[0]?.onlineAt} 
+                    userId={selectedUserQuery.data?.id} />
                 <div>
+                    {
+                        
+                    }
+                    <Message 
+                        message={'Hello'}   
+                        isFromeMe={'aaa'} /> 
                 </div>
+
                 <div>
                     <input
                         className="border rounded-lg pl-2 items-center justify-center"
