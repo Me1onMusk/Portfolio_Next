@@ -9,7 +9,7 @@ import { getStringDate } from "@/utils/diary/getStringedDate";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function Page({ initDate, onSubmit }) { 
+export default function Page({ onSubmit }) { 
 
     const router = useRouter(); 
     const [ input, setInput ] = useState({
