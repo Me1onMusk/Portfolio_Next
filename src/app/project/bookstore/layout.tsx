@@ -3,7 +3,7 @@ import SearchBar from "@/components/bookstore/searchbar";
 import Link from "next/link"; 
 import { ReactNode } from "react";
 
-export default function Page({children, modal}: Readonly<{children: ReactNode; modal: ReactNode;}>) {
+export default function Page({children}: Readonly<{children: ReactNode; modal: ReactNode;}>) {
 
     function Header() {
         return(
