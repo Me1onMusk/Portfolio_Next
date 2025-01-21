@@ -9,7 +9,7 @@ export default async function Page() {
     const { data: {session} } = await supabase.auth.getSession();
 
     return(
-        <div>
+        <div className="flex flex-col items-center justify-center gap-5">
             <ChatPeopleList loggedInUser={ session?.user } />
             <ChatScreen />
         </div>

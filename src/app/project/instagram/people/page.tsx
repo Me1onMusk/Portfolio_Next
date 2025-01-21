@@ -2,8 +2,10 @@
 
 export default function Page() {
     return(
-        <div className="w-full h-screen justify-center flex items-center">
-            사람들
+        <div className="flex flex-col items-center justify-center gap-5">
+            <h1 className="text-xl">
+                사람들
+            </h1>
         </div>
     );
 };

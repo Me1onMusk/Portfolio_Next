@@ -1,6 +1,5 @@
 
-import Auth from "@/app/auth/page";
-import MainLayout from "@/components/instagram/main-layout";
+import LogoutButton from "@/components/instagram/logout-button";
 import { createServerSupabaseClient } from "@/utils/supabase/server";
 
 export default async function Page() {
@@ -9,14 +8,11 @@ export default async function Page() {
     const { data: {session} } = await supabase.auth.getSession();
 
     return (
-        <div className="container mx-auto">
-            <div>
-                {
-                    session?.user ? 
-                    (<MainLayout user={session?.user} />) : 
-                    (<Auth path={'insta'} />)
-                }
-            </div>
-        </div>
+        <main className="flex flex-col items-center justify-center gap-5"> 
+            <h1 className="font-bold text-xl">
+                반갑습니다, { session.user.email?.split('@')?.[0] }님
+            </h1>
+            <LogoutButton />
+        </main>
     );
 };
