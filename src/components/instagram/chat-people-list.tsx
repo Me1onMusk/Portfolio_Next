@@ -6,6 +6,7 @@ import { useIdStore, useIndexStore, usePresenceState } from "@/utils/zustand/sto
 import { getAllUsers } from "@/app/actions/chatActions";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import Person from "./person";
 
 export default function ChatPeopleList({ loggedInUser }) {
 
@@ -28,9 +29,7 @@ export default function ChatPeopleList({ loggedInUser }) {
     useEffect(() => {
         const channel = supabase.channel('online_users', {
             config: {
-                presence: {
-                    key: loggedInUser.id
-                }
+                presence: { key: loggedInUser.id }
             }
         })
 
@@ -52,9 +51,22 @@ export default function ChatPeopleList({ loggedInUser }) {
     }, []);
 
     return (
-        <div>
+        <div className="flex flex-col bg-gray-50 border w-1/4">
             {
-                
+                getAllUsersQuery.data?.map((user, index) => (
+                    <Person 
+                        key={ user.id }
+                        index={ index }
+                        name={ user.email?.split('@')?.[0] }
+                        isActive={ selectedUserId === user.id }
+                        onChatScreen={ false }
+                        onlineAt={ presence?.[user.id]?.[0]?.onlineAt } 
+                        userId={ user.id }
+                        onClick={() => {
+                            setSelectedUserId(user.id)
+                            setSelectedUserIndex(index)
+                        }} />
+                ))
             }
         </div>
     );

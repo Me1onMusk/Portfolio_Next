@@ -120,32 +120,35 @@ export default function ChatScreen() {
     return(
         selectedUserQuery.data !== null ? 
         (
-            <div>
+            <div className="flex border w-full m-5 flex-col"> 
                 <Person 
-                    index={selectedUserIndex}
-                    name={selectedUserQuery.data?.email?.split('@')?.[0]}
-                    isActive={false}
-                    onChatScreen={false}
-                    onlineAt={presence?.[selectedUserId]?.[0]?.onlineAt} 
-                    userId={selectedUserQuery.data?.id} />
-                <div>
+                    index={ selectedUserIndex } 
+                    name={ selectedUserQuery.data?.email?.split('@')?.[0] } 
+                    isActive={ false } 
+                    onChatScreen={ false } 
+                    onlineAt={ presence?.[selectedUserId]?.[0]?.onlineAt } 
+                    userId={ selectedUserQuery.data?.id } />
+                <div className="flex-1 w-full flex flex-col gap-3 p-3 overflow-hidden">
                     {
-                        
-                    }
+                        getAllMessageQuery.data?.map( msg => ( 
+                            <Message 
+                                key={ msg.id } 
+                                message={ msg.message } 
+                                isFromMe={ msg.receiver === selectedUserId } />  
+                        ))
+                    } 
                     <Message 
-                        message={'Hello'}   
-                        isFromeMe={'aaa'} /> 
+                        message={ 'Hello' }
+                        isFromMe={ 'aaa' } /> 
                 </div>
-
-                <div>
+                <div className="flex flex-row">
                     <input
-                        className="border rounded-lg pl-2 items-center justify-center"
+                        className="border rounded-lg pl-2 items-center justify-center flex-1"
                         placeholder="메세지 입력"/>
                     <button
-                        onClick={() => {}}>
-                        {
-                            
-                        }
+                        className="bg-blue-300"
+                        onClick={() => sendMessageMutation.mutate()} >
+                        { sendMessageMutation.isPending ? <p>Loading...</p> : <span>전송</span> }
                     </button>
                 </div>
             </div>

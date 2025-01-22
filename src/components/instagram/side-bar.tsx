@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function SideBar() {
     return(
         <div>
-            <aside className="p-6 pt-20"> 
+            <aside className="p-6 pt-20 flex border w-fit"> 
                 <div className="flex flex-col gap-4 items-start">
                     <Link href={'/project/instagram'}> 
                         <Home className='text-2xl mb-10' />
