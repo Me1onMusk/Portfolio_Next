@@ -8,7 +8,7 @@ const timeAgo = new TimeAgo('ko-KR');
 
 export default function Person({ 
     index,
-    userId,
+    userId, 
     name,
     onlineAt,
     isActive = false,
@@ -22,15 +22,15 @@ export default function Person({
                 ${!onChatScreen && isActive && 'bg-light-blue-50'} 
                 ${!onChatScreen && !isActive && 'bg-gray-50'}  
                 ${onChatScreen && 'bg-gray-50'} `} 
-                onClick={onClick}> 
+                onClick={ onClick }> 
             <img
-                src={ getRandomImage(index) } 
+                src={ getRandomImage(1) } 
                 alt={name} 
                 className="w-10 h-10 rounded-full" />
             <div>
                 <p className="text-black font-bold text-lg">{name}</p>
                 <p className="text-gray-500 text-sm"> 
-                    { onlineAt && timeAgo.format(Date.parse(onlineAt)) }
+                { onlineAt && timeAgo.format(Date.parse(onlineAt)) }
                 </p>
             </div> 
         </div>

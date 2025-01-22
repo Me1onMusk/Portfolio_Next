@@ -123,10 +123,10 @@ export default function ChatScreen() {
             <div className="flex border w-full m-5 flex-col"> 
                 <Person 
                     index={ selectedUserIndex } 
-                    name={ selectedUserQuery.data?.email?.split('@')?.[0] } 
+                    name={ "Kim" } 
                     isActive={ false } 
                     onChatScreen={ false } 
-                    onlineAt={ presence?.[selectedUserId]?.[0]?.onlineAt } 
+                    onlineAt={ "" } 
                     userId={ selectedUserQuery.data?.id } />
                 <div className="flex-1 w-full flex flex-col gap-3 p-3 overflow-hidden">
                     {
@@ -139,14 +139,17 @@ export default function ChatScreen() {
                     } 
                     <Message 
                         message={ 'Hello' }
-                        isFromMe={ 'aaa' } /> 
+                        isFromMe={ true } /> 
+                    <Message 
+                        message={ 'Hello' }
+                        isFromMe={ false } /> 
                 </div>
                 <div className="flex flex-row">
                     <input
                         className="border rounded-lg pl-2 items-center justify-center flex-1"
                         placeholder="메세지 입력"/>
                     <button
-                        className="bg-blue-300"
+                        className="dark:bg-blue-500 bg-blue-300 rounded-lg p-2" 
                         onClick={() => sendMessageMutation.mutate()} >
                         { sendMessageMutation.isPending ? <p>Loading...</p> : <span>전송</span> }
                     </button>

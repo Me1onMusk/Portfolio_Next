@@ -19,8 +19,7 @@ export default function ChatPeopleList({ loggedInUser }) {
     const getAllUsersQuery = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const allUsers = await getAllUsers()
-            console.log(allUsers)
+            const allUsers = await getAllUsers();
             return allUsers.filter((user) => user.id !== loggedInUser.id);
         }
     });
@@ -60,7 +59,7 @@ export default function ChatPeopleList({ loggedInUser }) {
                         name={ user.email?.split('@')?.[0] }
                         isActive={ selectedUserId === user.id }
                         onChatScreen={ false }
-                        onlineAt={ presence?.[user.id]?.[0]?.onlineAt } 
+                        onlineAt={ "presence?.[user.id]?.[0]?.onlineAt" } 
                         userId={ user.id }
                         onClick={() => {
                             setSelectedUserId(user.id)
@@ -68,6 +67,20 @@ export default function ChatPeopleList({ loggedInUser }) {
                         }} />
                 ))
             }
+                <Person 
+                    index={ selectedUserIndex } 
+                    name={ "Kim" } 
+                    isActive={ false } 
+                    onChatScreen={ false } 
+                    onlineAt={ "" } 
+                    userId={ "" } />
+                <Person 
+                    index={ selectedUserIndex } 
+                    name={ "Lee" } 
+                    isActive={ false } 
+                    onChatScreen={ false } 
+                    onlineAt={ "" } 
+                    userId={ "" } />
         </div>
     );
 };

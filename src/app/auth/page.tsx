@@ -17,7 +17,7 @@ const Auth: React.FC<AuthProps> = ({ path }) => {
         <main 
             className="flex justify-center items-center mx-auto container px-5 py-32 md:flex-row">
             {
-                view === 'SIGNIN' ? (<SignIn setView={setView} path={path} />) : (<SignUp setView={setView} />)
+                view === 'SIGNIN' ? (<SignIn setView={setView} path={path} />) : (<SignUp setView={setView} path={path} />)
             }
         </main>
     );

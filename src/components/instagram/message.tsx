@@ -4,7 +4,7 @@
 export default function Message({ isFromMe, message }) {
     return(
         <div 
-            className={ `w-fit rounded-lg ${isFromMe ? 'bg-light-blue-500 text-white ml-auto' : 'bg-gray-100 text-black'}` } > 
+            className={ `w-fit p-2 rounded-lg ${isFromMe ? 'bg-blue-300 text-black ml-auto' : 'bg-gray-100 text-black'}` } > 
             <p>{ message }</p>
         </div>
     );
