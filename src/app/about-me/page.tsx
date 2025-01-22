@@ -34,7 +34,7 @@ export default function Page() {
                                     <h2 className="font-medium title-font mt-4 text-slate-900 dark:text-white text-lg">김태영</h2>
                                     <div className="w-12 h-1 bg-yellow-500 rounded mt-2 mb-4"></div>
                                     <p className="text-base text-slate-500 dark:text-slate-400">
-                                        Raclette knausgaard hella meggs normcore williamsburg enamel pin sartorial venmo tbh hot chicken gentrify portland.
+                                        맡은 일에 최선을 다하고 맡은 일에 책임지는 개발자가 되고 싶습니다.
                                     </p>
                                 </div>
 
@@ -42,10 +42,11 @@ export default function Page() {
 
                             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                                 <p className="leading-relaxed text-lg mb-4 text-slate-500 dark:text-slate-400">
-                                    Meggings portland fingerstache lyft, post-ironic fixie man bun banh mi umami everyday carry hexagon locavore direct trade art party. 
-                                    Locavore small batch listicle gastropub farm-to-table lumbersexual salvia messenger bag. 
-                                    Coloring book flannel truffaut craft beer drinking vinegar sartorial, disrupt fashion axe normcore meh butcher. 
-                                    Portland 90's scenester vexillologist forage post-ironic asymmetrical, chartreuse disrupt butcher paleo intelligentsia pabst before they sold out four loko. 3 wolf moon brooklyn.
+                                    - 대일고등학교 졸업 <br/> 
+                                    - 대한민국 공군 병장 만기전역 <br/> 
+                                    - 프론트엔드 개발자 인턴 <br/> 
+                                    &nbsp; 회사 홈페이지 유지 보수 및 Next.js로 변환 작업 <br/>
+                                    &nbsp; TypeScript | React | Next.js | Node.js | Tailwind.CSS 사용
                                 </p>
                                 <a className="text-indigo-500 inline-flex items-center">Learn More
                                     <svg 
