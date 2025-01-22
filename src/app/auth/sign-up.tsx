@@ -13,12 +13,13 @@ interface SignUpProps {
 // 회원 가입 //
 export default function SignUp({ setView, path }: SignUpProps) {
 
+    const supabase = createBrowserSupabaseClient();
+
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-    const [otp, setOtp] = useState('');
-    const [confirmationReq, setConfirmReq] = useState(false);  //이메일 전송후 재전송 하지 못하게 
+    const [ otp, setOtp ] = useState('');
+    const [ confirmationReq, setConfirmReq ] = useState(false);  //이메일 전송후 재전송 하지 못하게 
 
-    const supabase = createBrowserSupabaseClient();
     const signUpMutation = useMutation({
         mutationFn: (
             async () => {
@@ -31,7 +32,7 @@ export default function SignUp({ setView, path }: SignUpProps) {
                             options: {  //로그인 성공 후 리다이렉트될 URL
                                 emailRedirectTo: process.env.NEXT_PUBLIC_VERCEL_URL && (path === 'insta') ?
                                     `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/project/instagram` : 
-                                    `http://${process.env.NEXT_PUBLIC_VERCEL_URL}/`
+                                    `http://${process.env.NEXT_PUBLIC_VERCEL_URL}/auth`
                             }
                         }
                     )
@@ -45,11 +46,13 @@ export default function SignUp({ setView, path }: SignUpProps) {
     const verifyOtpMutation = useMutation({
         mutationFn: (
             async() => {
-                const { data, error } = await supabase.auth.verifyOtp({
-                    type: 'signup',
-                    email,
-                    token: otp
-                })
+                const { data, error } = await supabase
+                    .auth
+                    .verifyOtp({
+                        type: 'signup',
+                        email,
+                        token: otp
+                    })
 
                 if(data) console.log(data); 
                 if(error) alert(error.message);

@@ -13,5 +13,6 @@ export async function GET(request: Request) {
         await supabase.auth.exchangeCodeForSession(code);  //세션 받아오기 
     };
     
-    return NextResponse.redirect(requetURL.origin);
+    // localhost:3000 
+    return NextResponse.redirect(requetURL.origin); 
 };
