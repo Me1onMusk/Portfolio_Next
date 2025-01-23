@@ -2,9 +2,12 @@
 'use client';
 
 import { createBrowserSupabaseClient } from "@/utils/supabase/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { unsubscribe } from "diagnostics_channel";
 
 interface SignInProps {
     setView: React.Dispatch<React.SetStateAction<string>>;
@@ -17,10 +20,11 @@ export default function SignIn({ setView, path }: SignInProps) {
     const supabase = createBrowserSupabaseClient(); 
     const [ email, setEmail ] = useState(''); 
     const [ password, setPassword ] = useState(''); 
+    const [session, setSession] = useState(null);
+    const router = useRouter();
     
     // 카카오 로그인 인증 // 
     const signInWithKakao = async () => {
-        console.log("실행");
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: 'kakao',
             options: {  //로그인 성공 후 리다이렉트될 URL
@@ -30,7 +34,15 @@ export default function SignIn({ setView, path }: SignInProps) {
             }
         });
     }; 
-    
+
+    async function signInWithEmail() {
+        const { data, error } = await supabase.auth
+            .signInWithPassword({
+                email: email,
+                password: password,
+            });
+    }; 
+
     return (
         <div className="flex flex-col">
             <div 
@@ -42,10 +54,10 @@ export default function SignIn({ setView, path }: SignInProps) {
                         <>
                             <img 
                                 className="w-60 mb-6 dark:hidden"
-                                src={'/logo/logo.png'} /> 
+                                src={ '/logo/logo.png' } /> 
                             <img 
                                 className="w-60 mb-6 hidden dark:block"
-                                src={'/logo/logo_white.png'} /> 
+                                src={ '/logo/logo_white.png' } /> 
                             <input
                                 value={email}
                                 type="email" 
@@ -61,7 +73,7 @@ export default function SignIn({ setView, path }: SignInProps) {
                             <button 
                                 className="w-full text-md text-white py-1 bg-blue-500 hover:bg-blue-600 rounded-lg" 
                                 color="light-blue"
-                                onClick={() => {}} >
+                                onClick={ () => signInWithEmail() } >
                                 로그인
                             </button>
                             <img
@@ -72,16 +84,21 @@ export default function SignIn({ setView, path }: SignInProps) {
                                 아직 계정이 없으신가요? 
                                 <button 
                                     className="text-light-blue-600 font-bold pl-2"
-                                    onClick={() => setView('SIGNUP')} >
+                                    onClick={ () => setView('SIGNUP') } >
                                     <span className="hover:text-green-600 dark:hover:text-green-600 text-green-500">가입하기</span>
                                 </button>
                             </div>
                         </>
                     ) :
-                    (
-                        <div>
+                    (   
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <p className="w-60 mb-6 justify-center items-center flex text-3xl font-bold">
+                                로그인
+                            </p>
                             <Auth
-                                supabaseClient={supabase}
+                                onlyThirdPartyProviders
+                                redirectTo="http://localhost:3000/" 
+                                supabaseClient={ supabase }
                                 appearance={{
                                     // theme: customTheme,
                                     theme: ThemeSupa,
@@ -125,8 +142,37 @@ export default function SignIn({ setView, path }: SignInProps) {
                                             link_text: '비밀번호를 잊으셨나요?'
                                         }
                                     }
-                                }}
-                            />
+                                }} />
+                            <input
+                                value={ email }
+                                type="email" 
+                                name="email"
+                                required
+                                onChange={ e => setEmail(e.target.value) }
+                                placeholder="이메일"
+                                className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2"/>
+                            <input
+                                value={ password }
+                                type="password" 
+                                name="password"
+                                required
+                                onChange={ e => setPassword(e.target.value) }
+                                placeholder="비밀번호"
+                                className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2" />
+                            <button 
+                                className="w-full text-md text-white py-1 bg-blue-500 hover:bg-blue-600 rounded-lg mt-5" 
+                                color="light-blue"
+                                onClick={ () => signInWithEmail() } >
+                                로그인
+                            </button>
+                            <div className="py-4 w-full text-center max-w-lg bg-white  dark:bg-slate-800 gap-5 rounded-lg">
+                                아직 계정이 없으신가요? 
+                                <button 
+                                    className="text-light-blue-600 font-bold pl-2"
+                                    onClick={ () => setView('SIGNUP') } >
+                                    <span className="hover:text-green-600 dark:hover:text-green-600 text-green-500">가입하기</span>
+                                </button>
+                            </div>
                         </div>
                     )
                 }

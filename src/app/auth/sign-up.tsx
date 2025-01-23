@@ -65,12 +65,22 @@ export default function SignUp({ setView, path }: SignUpProps) {
         <div className="flex flex-col">
             <div className="pt-10 pb-6 mb-5 px-10 w-full flex flex-col items-center justify-center dark:bg-slate-800
                 max-w-lg border rounded-lg border-gray-400 bg-white gap-5"> 
-                <img 
-                    className="w-60 mb-6 dark:hidden"
-                    src={'/logo/logo.png'} />
-                <img 
-                    className="w-60 mb-6 hidden dark:block"
-                    src={'/logo/logo_white.png'} />  
+                {
+                    (path === 'insta') ? 
+                    (<>
+                        <img 
+                            className="w-60 mb-6 dark:hidden"
+                            src={'/logo/logo.png'} />
+                        <img 
+                            className="w-60 mb-6 hidden dark:block"
+                            src={'/logo/logo_white.png'} />  
+                    </>) :
+                    (
+                        <p className="w-60 mb-6 justify-center items-center flex text-3xl font-bold">
+                            회원가입
+                        </p>
+                    )
+                }
                 {
                     confirmationReq ?
                     (
