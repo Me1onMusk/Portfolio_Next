@@ -12,14 +12,15 @@ export default function ChatPeopleList({ loggedInUser }) {
 
     const supabase = createBrowserSupabaseClient(); 
     const { selectedUserId, setSelectedUserId } = useIdStore();
-    const { selectedUserIndex, setSelectedUserIndex } = useIndexStore();   
+    const { selectedUserIndex, setSelectedUserIndex } = useIndexStore();
     const { presence, setPresence } = usePresenceState(); 
 
     // 모든 유저 가져오기 //
     const getAllUsersQuery = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const allUsers = await getAllUsers();
+            const allUsers = await getAllUsers(); 
+
             return allUsers.filter((user) => user.id !== loggedInUser.id);
         }
     });
@@ -50,7 +51,7 @@ export default function ChatPeopleList({ loggedInUser }) {
     }, []);
 
     return (
-        <div className="flex flex-col bg-gray-50 border w-1/4">
+        <div className="flex flex-col bg-gray-100 border w-1/4">
             {
                 getAllUsersQuery.data?.map((user, index) => (
                     <Person 
@@ -59,7 +60,7 @@ export default function ChatPeopleList({ loggedInUser }) {
                         name={ user.email?.split('@')?.[0] }
                         isActive={ selectedUserId === user.id }
                         onChatScreen={ false }
-                        onlineAt={ "presence?.[user.id]?.[0]?.onlineAt" } 
+                        onlineAt={ new Date().toISOString() } 
                         userId={ user.id }
                         onClick={() => {
                             setSelectedUserId(user.id)
@@ -67,20 +68,6 @@ export default function ChatPeopleList({ loggedInUser }) {
                         }} />
                 ))
             }
-                <Person 
-                    index={ selectedUserIndex } 
-                    name={ "Kim" } 
-                    isActive={ false } 
-                    onChatScreen={ false } 
-                    onlineAt={ "" } 
-                    userId={ "" } />
-                <Person 
-                    index={ selectedUserIndex } 
-                    name={ "Lee" } 
-                    isActive={ false } 
-                    onChatScreen={ false } 
-                    onlineAt={ "" } 
-                    userId={ "" } />
         </div>
     );
 };

@@ -16,7 +16,11 @@ export default async function Page() {
     return (
         <main className="flex flex-col items-center justify-center gap-5 w-full"> 
             <h1 className="font-bold text-xl">
-                반갑습니다, { session.user.email?.split('@')?.[0] }님
+                반갑습니다, 
+                { session ?
+                    <p>{ session.user.email?.split('@')?.[0] }님</p> :
+                    <p></p>
+                }
             </h1>
             <LogoutButton />
         </main>

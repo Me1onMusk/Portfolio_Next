@@ -2,6 +2,12 @@
 import Hero_Anim from "./hero_anim";
 import Hero_Main from "./hero_main";
 
+import dynamic from 'next/dynamic';
+
+// const DynamicHeroAnim = dynamic(() => import('./hero_anim'), {
+//     ssr: false, //서버 사이드 렌더링 비활성화
+// });
+
 export default function Hero() {
     return (
         <>

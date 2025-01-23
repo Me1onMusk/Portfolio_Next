@@ -26,13 +26,14 @@ export default function SignUp({ setView, path }: SignUpProps) {
                 const { data, error } = await supabase
                     .auth
                     .signUp(
-                        { 
+                        {   
                             email,
                             password, 
                             options: {  //로그인 성공 후 리다이렉트될 URL
                                 emailRedirectTo: process.env.NEXT_PUBLIC_VERCEL_URL && (path === 'insta') ?
                                     `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/project/instagram` : 
                                     `http://${process.env.NEXT_PUBLIC_VERCEL_URL}/auth`
+                                // emailRedirectTo: 'http://localhost:3000/auth'
                             }
                         }
                     )

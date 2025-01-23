@@ -18,13 +18,13 @@ export default function Person({
     return(
         <div 
             className={`flex items-center p-4 gap-5 w-full min-w-60 
-                ${onClick && 'cursor-pointer'} 
-                ${!onChatScreen && isActive && 'bg-light-blue-50'} 
+                ${onClick && 'cursor-pointer'}
+                ${!onChatScreen && isActive && 'bg-blue-100'}
                 ${!onChatScreen && !isActive && 'bg-gray-50'}  
                 ${onChatScreen && 'bg-gray-50'} `} 
                 onClick={ onClick }> 
             <img
-                src={ getRandomImage(1) } 
+                src={ getRandomImage(index) } 
                 alt={name} 
                 className="w-10 h-10 rounded-full" />
             <div>
