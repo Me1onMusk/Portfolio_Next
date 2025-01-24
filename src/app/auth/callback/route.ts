@@ -11,13 +11,12 @@ export async function GET(request: Request) {
     console.log(`${pathname}`); // /auth/callback
     console.log(`${next}`);     // /
     console.log(`${origin}`);   // http://localhost:3000
-
+    
     if (code) {
         const supabase = await createServerSupabaseClient(); 
         const { error } = await supabase.auth.exchangeCodeForSession(code);  
 
-        if (!error)
-            return NextResponse.redirect(`${origin}${next}`); 
+        if (!error) return NextResponse.redirect(`${origin}${next}`); 
     };
 
     return NextResponse.redirect(`${origin}/auth/auth-code-error`);  //실패 했을 경우 

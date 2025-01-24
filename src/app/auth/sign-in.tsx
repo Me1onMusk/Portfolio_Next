@@ -5,9 +5,9 @@ import { createBrowserSupabaseClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { unsubscribe } from "diagnostics_channel";
+import { useMutation } from "@tanstack/react-query";
+import Link from "next/link";
 
 interface SignInProps {
     setView: React.Dispatch<React.SetStateAction<string>>;
@@ -35,13 +35,24 @@ export default function SignIn({ setView, path }: SignInProps) {
         });
     }; 
 
-    async function signInWithEmail() {
-        const { data, error } = await supabase.auth
-            .signInWithPassword({
-                email: email,
-                password: password,
-            });
-    }; 
+    // 이메일 로그인 // 
+    const signInMutation = useMutation({    
+        mutationFn: (
+            async () => {
+                const { data, error } = await supabase
+                    .auth
+                    .signInWithPassword(
+                        {
+                            email,
+                            password
+                        }
+                    )
+
+                if(data) console.log(data);
+                if(error) alert(error.message);
+            }
+        )
+    });
 
     return (
         <div className="flex flex-col">
@@ -61,21 +72,27 @@ export default function SignIn({ setView, path }: SignInProps) {
                             <input
                                 value={email}
                                 type="email" 
+                                name="email"
                                 onChange={ e => setEmail(e.target.value) }
                                 placeholder="이메일"
                                 className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2"/>
                             <input
                                 value={password}
                                 type="password" 
+                                name="password"
                                 onChange={ e => setPassword(e.target.value) }
                                 placeholder="비밀번호"
                                 className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2" />
-                            <button 
-                                className="w-full text-md text-white py-1 bg-blue-500 hover:bg-blue-600 rounded-lg" 
-                                color="light-blue"
-                                onClick={ () => signInWithEmail() } >
-                                로그인
-                            </button>
+                            <Link
+                                className="w-full"
+                                href={'/project/instagram'} >
+                                <button 
+                                    className="w-full text-md text-white py-1 bg-blue-500 hover:bg-blue-600 rounded-lg" 
+                                    color="light-blue" 
+                                    onClick={ () => signInMutation.mutate() } >
+                                    로그인
+                                </button>
+                            </Link>
                             <img
                                 className='rounded-md '
                                 src={'/logo/kakao_login.png'} 
@@ -143,36 +160,42 @@ export default function SignIn({ setView, path }: SignInProps) {
                                         }
                                     }
                                 }} />
-                            <input
-                                value={ email }
-                                type="email" 
-                                name="email"
-                                required
-                                onChange={ e => setEmail(e.target.value) }
-                                placeholder="이메일"
-                                className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2"/>
-                            <input
-                                value={ password }
-                                type="password" 
-                                name="password"
-                                required
-                                onChange={ e => setPassword(e.target.value) }
-                                placeholder="비밀번호"
-                                className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2" />
-                            <button 
-                                className="w-full text-md text-white py-1 bg-blue-500 hover:bg-blue-600 rounded-lg mt-5" 
-                                color="light-blue"
-                                onClick={ () => signInWithEmail() } >
-                                로그인
-                            </button>
-                            <div className="py-4 w-full text-center max-w-lg bg-white  dark:bg-slate-800 gap-5 rounded-lg">
-                                아직 계정이 없으신가요? 
-                                <button 
-                                    className="text-light-blue-600 font-bold pl-2"
-                                    onClick={ () => setView('SIGNUP') } >
-                                    <span className="hover:text-green-600 dark:hover:text-green-600 text-green-500">가입하기</span>
-                                </button>
-                            </div>
+                            <form className="flex flex-col items-center justify-center gap-2">
+                                <input
+                                    value={ email }
+                                    type="email" 
+                                    name="email"
+                                    required
+                                    onChange={ e => setEmail(e.target.value) }
+                                    placeholder="이메일"
+                                    className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2"/>
+                                <input
+                                    value={ password }
+                                    type="password" 
+                                    name="password"
+                                    required
+                                    onChange={ e => setPassword(e.target.value) }
+                                    placeholder="비밀번호"
+                                    className="w-full p-1 rounded-lg dark:bg-white border-black border text-black dark:text-black pl-2" />
+                                <Link
+                                    className="w-full"
+                                    href={'/'}>
+                                    <button 
+                                        className="w-full text-md text-white py-1 bg-blue-500 hover:bg-blue-600 rounded-lg mt-5" 
+                                        color="light-blue" 
+                                        onClick={ () => signInMutation.mutate() }>
+                                        로그인
+                                    </button>
+                                </Link>
+                                <div className="py-4 w-full text-center max-w-lg bg-white  dark:bg-slate-800 gap-5 rounded-lg">
+                                    아직 계정이 없으신가요? 
+                                    <button 
+                                        className="text-light-blue-600 font-bold pl-2"
+                                        onClick={ () => setView('SIGNUP') } >
+                                        <span className="hover:text-green-600 dark:hover:text-green-600 text-green-500">가입하기</span>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     )
                 }
