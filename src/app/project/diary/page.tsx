@@ -13,8 +13,8 @@ export default function Page() {
                     leftChild={ <Button text={'<'} type={''} onClick={()=>{}} /> } 
                     title={ new Date().toLocaleDateString() } 
                     rightChild={ <Button text={'>'} type={''} onClick={()=>{}} /> } > 
-                </Header>
-                <DiaryList />
+                </Header> 
+                <DiaryList /> 
             </div>
         </div>
     );

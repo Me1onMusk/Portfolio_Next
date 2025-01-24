@@ -3,7 +3,7 @@ import { getEmotionImage } from "@/utils/diary/get-emotion-image";
 import Button from "./button"; 
 import Link from "next/link";
 
-export default function DiaryItem() {
+export default function DiaryItem({ id, createdDate, emotionID, content }) {
     return( 
         <div className="flex gap-14 justify-center border items-center rounded-lg"> 
             <div className=""> 
@@ -18,7 +18,7 @@ export default function DiaryItem() {
                     { new Date().toLocaleDateString() }
                 </div>
                 <div>
-                    {}
+                    { content }
                 </div>
             </div>
             <div> 
