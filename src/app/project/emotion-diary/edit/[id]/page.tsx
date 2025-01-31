@@ -7,13 +7,17 @@ import Button from "@/components/diary/button";
 import { useParams, useRouter } from "next/navigation";
 import useDiary from "@/app/hooks/useDiary";
 import { useContext } from "react";
-import { DiaryDispatchContext } from "../layout";
+import { DiaryDispatchContext } from "../../layout"; 
+import usePageTitle from "@/app/hooks/usePageTitle"; 
 
 export default function Page() { 
 
     const router = useRouter(); 
     const params = useParams(); //파라미터 가져오기 
     const { onUpdate, onDelete } = useContext(DiaryDispatchContext);
+
+    // 메타 타이틀 변경하기 // 
+    usePageTitle(`${params.id}번 일기 수정`);
 
     const curDiaryItem = useDiary(params.id);  //커스텀 훅 
     if (!curDiaryItem) return <div>데이터 로딩중</div>
@@ -22,7 +26,8 @@ export default function Page() {
     const onClickDelete = () => {
         if (window.confirm("일기를 삭제할까요?")) {            //윈도우 팝업창 (T/F 반환) 
             onDelete(params.id);            
-            router.push('/project/diary');                     //홈 이동 & 뒤로가기 방지  
+            router.push('/project/emotion-diary');                
+                 //홈 이동 & 뒤로가기 방지  
         } 
     }; 
 
@@ -35,7 +40,7 @@ export default function Page() {
                 input.emotionID, 
                 input.content
             );
-            router.push('/project/diary');  
+            router.push('/project/emotion-diary');  
         };
     };
 
@@ -46,7 +51,7 @@ export default function Page() {
                 title={ '일기 수정하기' } 
                 rightChild={ <Button onClick={ onClickDelete } text={"삭제하기"} type={"NEGATIVE"} /> } > 
             </Header>   
-            <Editor initData={curDiaryItem} onSubmit={onSubmit} />
+            <Editor initData={ curDiaryItem } onSubmit={ onSubmit } />
         </div>
     );
 };

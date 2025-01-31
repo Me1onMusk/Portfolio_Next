@@ -9,11 +9,15 @@ import { emotionList } from "@/utils/diary/constants";
 import { getStringDate } from "@/utils/diary/getStringedDate";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
-import { DiaryDispatchContext } from "../layout";
+import { DiaryDispatchContext } from "../layout"; 
+import usePageTitle from "@/app/hooks/usePageTitle"; 
 
 export default function Page() { 
     
     const { onCreate } = useContext(DiaryDispatchContext);
+
+    // 메타 타이틀 변경하기 // 
+    usePageTitle("새 일기 쓰기");
 
     const router = useRouter(); 
     const [ input, setInput ] = useState({
@@ -33,16 +37,16 @@ export default function Page() {
     };
 
     // 날짜 넣기 // 
-    const onChangeInput = (e) => { 
-        let name = e.target.name;
-        let value = e.target.value;
-        if(name === 'createdDate') 
-            value = new Date(value); 
-        setInput({
-            ...input,
-            [name] : value
-        });
-    };
+    // const onChangeInput = (e) => { 
+    //     let name = e.target.name;
+    //     let value = e.target.value;
+    //     if(name === 'createdDate') 
+    //         value = new Date(value); 
+    //     setInput({
+    //         ...input,
+    //         [name] : value
+    //     });
+    // };
 
     return (
         <div className="container w-fit mx-auto p-20 flex flex-col items-center justify-center gap-2">  
@@ -51,7 +55,7 @@ export default function Page() {
                 title={ '새 일기 쓰기' } 
                 rightChild={ '' } > 
             </Header>   
-            <Editor initData={''} onSubmit={onSubmit} />
+            <Editor initData={''} onSubmit={ onSubmit } />
             {/* <section className="flex w-full flex-col mb-10 gap-5 justify-center"> 
                 <h4 className="flex font-bold text-2xl">오늘의 날짜</h4>
                 <input 

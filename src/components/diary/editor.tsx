@@ -4,9 +4,10 @@ import { getStringDate } from "@/utils/diary/getStringedDate";
 import EmotionItem from "@/components/diary/emotion-item";
 import { useEffect, useState } from "react";
 import Button from "@/components/diary/button";
+import { useRouter } from "next/navigation";
 
 export default function Editor({ initData, onSubmit }) {
-
+    const router = useRouter();
     const [ input, setInput ] = useState({
         createdDate: new Date(),
         emotionID: 3,
@@ -23,9 +24,7 @@ export default function Editor({ initData, onSubmit }) {
     }, [initData]); 
 
     // 전송 버튼 //
-    const onClickSubmitButton = () => {
-        onSubmit(input);
-    };
+    const onClickSubmitButton = () => { onSubmit(input); };
 
     // 날짜 넣기 // 
     const onChangeInput = (e) => { 
@@ -84,7 +83,7 @@ export default function Editor({ initData, onSubmit }) {
                     type={ 'NEGATIVE' } />
                 <Button
                     onClick={ onClickSubmitButton } 
-                    text={ '수정완료' } 
+                    text={ '작성완료' } 
                     type={ 'POSITIVE' } />
             </section>
         </>
