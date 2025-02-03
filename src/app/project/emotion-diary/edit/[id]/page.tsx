@@ -7,8 +7,8 @@ import Button from "@/components/diary/button";
 import { useParams, useRouter } from "next/navigation";
 import useDiary from "@/app/hooks/useDiary";
 import { useContext } from "react";
-import { DiaryDispatchContext } from "../../layout"; 
 import usePageTitle from "@/app/hooks/usePageTitle"; 
+import { DiaryDispatchContext } from "../../DiaryProvider";
 
 export default function Page() { 
 

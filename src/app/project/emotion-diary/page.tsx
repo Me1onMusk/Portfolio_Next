@@ -6,7 +6,7 @@ import Button from "@/components/diary/button";
 import DiaryList from "@/components/diary/diary-list";
 import Header from "@/components/diary/header";
 import { useContext, useState } from "react";
-import { DiaryStateContext } from "./layout";
+import { DiaryStateContext } from "./DiaryProvider";
 
 const getMonthlyData = (pivotDate, data) => {
     const beginTime = new Date(pivotDate.getFullYear(), pivotDate.getMonth(), 1, 0, 0, 0).getTime();  //12월 01일 00시 00분 00초 

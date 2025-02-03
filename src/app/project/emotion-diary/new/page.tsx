@@ -3,14 +3,11 @@
 
 import Button from "@/components/diary/button";
 import Editor from "@/components/diary/editor";
-import EmotionItem from "@/components/diary/emotion-item";
 import Header from "@/components/diary/header";
-import { emotionList } from "@/utils/diary/constants";
-import { getStringDate } from "@/utils/diary/getStringedDate";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
-import { DiaryDispatchContext } from "../layout"; 
 import usePageTitle from "@/app/hooks/usePageTitle"; 
+import { DiaryDispatchContext } from "../DiaryProvider";
 
 export default function Page() { 
     
