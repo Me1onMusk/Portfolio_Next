@@ -1,4 +1,6 @@
 
+'use client';
+
 import useDiary from "@/app/hooks/useDiary";
 import usePageTitle from "@/app/hooks/usePageTitle"; 
 import Button from "@/components/diary/button";
