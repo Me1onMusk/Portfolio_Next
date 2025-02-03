@@ -22,7 +22,7 @@ export default function Page() {
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-wrap -m-4">
 
-                        <div className="p-4 md:w-1/3">
+                        {/* <div className="p-4 md:w-1/3">
                             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                                 <Image 
                                     className="lg:h-48 md:h-36 w-full object-cover object-center" 
@@ -47,6 +47,38 @@ export default function Page() {
                                     </div>
                                 </div>
                             </div>
+                        </div> */}
+
+                        <div className="p-4 md:w-1/3">
+                            <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                                <Image 
+                                    className="lg:h-48 md:h-36 w-full object-cover object-center" 
+                                    src="/img_project/todolist.png"  
+                                    width={720}
+                                    height={400}
+                                    alt="blog" />
+                                <div className="p-6">
+                                    <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
+                                    <h1 className="title-font text-lg font-medium text-slate-900 dark:text-white mb-3">투두 리스트 (with supabase)</h1>
+                                    <p className="leading-relaxed mb-3 text-slate-500 dark:text-slate-400">
+                                        특징 : 생성 | 수정 | 삭제 <br/> 
+                                        프레임워크 : Next.js <br/> 
+                                        사용언어 : 타입스크립트 <br /> 
+                                        사용기술 : Tailwind CSS | Supabase DB
+                                    </p>
+                                    <div className="flex items-center flex-wrap ">
+                                        <Link className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href={'/project/todo-supabase'}>
+                                            보러가기
+                                        </Link>
+                                        <svg 
+                                            className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" 
+                                            fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="p-4 md:w-1/3">
@@ -61,8 +93,10 @@ export default function Page() {
                                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
                                     <h1 className="title-font text-lg font-medium text-slate-900 dark:text-white mb-3">감성 일기장</h1>
                                     <p className="leading-relaxed mb-3 text-slate-500 dark:text-slate-400">
-                                        사용언어 : Next | 타입스크립트 <br />
-                                        사용기술 : 백엔드 서버 API
+                                        특징 : 생성 | 수정 | 삭제 <br/>
+                                        프레임워크 : Next.js <br/>
+                                        사용언어 : 타입스크립트 <br />
+                                        사용기술 : Tailwind CSS
                                     </p>
                                     <div className="flex items-center flex-wrap">
                                         <Link className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href={'/project/emotion-diary'}>보러가기</Link>
@@ -89,8 +123,10 @@ export default function Page() {
                                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
                                     <h1 className="title-font text-lg font-medium text-slate-900 dark:text-white mb-3">투두 리스트 (on browser)</h1>
                                     <p className="leading-relaxed mb-3 text-slate-500 dark:text-slate-400">
-                                        사용언어 : Next | 타입스크립트 <br />
-                                        사용기술 : 백엔드 서버 API
+                                        특징 : 생성 | 수정 | 삭제 <br/>
+                                        프레임워크 : Next.js <br/>
+                                        사용언어 : 타입스크립트 <br />
+                                        사용기술 : Tailwind CSS
                                     </p>
                                     <div className="flex items-center flex-wrap ">
                                         <Link className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href={'/project/todo'}>보러가기</Link>
@@ -125,8 +161,10 @@ export default function Page() {
                                 <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
                                 <h1 className="title-font text-lg font-medium text-slate-900 dark:text-white mb-3">넷플릭스</h1>
                                 <p className="leading-relaxed mb-3 text-slate-500 dark:text-slate-400">
-                                    사용언어 : Next | 타입스크립트 <br />
-                                    사용기술 : Supabase DB, 무한 스크롤
+                                        특징 : 무한 스크롤 <br/>
+                                        프레임워크 : Next.js <br/>
+                                        사용언어 : 타입스크립트 <br />
+                                        사용기술 : Tailwind CSS | Supabase DB
                                 </p>
                                     <div className="flex items-center flex-wrap ">
                                         <Link className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href={'/project/netflix'}>보러가기</Link>
@@ -151,8 +189,10 @@ export default function Page() {
                                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
                                     <h1 className="title-font text-lg font-medium text-slate-900 dark:text-white mb-3">인스타그램</h1>
                                     <p className="leading-relaxed mb-3 text-slate-500 dark:text-slate-400">
-                                        사용언어 : Next | 타입스크립트 <br />
-                                        사용기술 : Supabase 실시간 채팅 | Supabase Auth
+                                        특징 : 실시간 채팅 | 로그인 & 로그아웃 | 카카오 인증 <br/>
+                                        프레임워크 : Next.js <br/>
+                                        사용언어 : 타입스크립트 <br />
+                                        사용기술 : Tailwind CSS | Supabase DB | Supabase Auth
                                     </p>
                                     <div className="flex items-center flex-wrap">
                                             <Link className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href={'/project/instagram'}>
@@ -179,41 +219,13 @@ export default function Page() {
                                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
                                     <h1 className="title-font text-lg font-medium text-slate-900 dark:text-white mb-3">드롭박스</h1>
                                     <p className="leading-relaxed mb-3 text-slate-500 dark:text-slate-400">
-                                        사용언어 : Next | 타입스크립트 <br />
-                                        사용기술 : 백엔드 서버 API
+                                        특징 : 파일 업로드 & 삭제 <br/>
+                                        프레임워크 : Next.js <br/>
+                                        사용언어 : 타입스크립트 <br />
+                                        사용기술 : Tailwind CSS | Supabase DB 
                                     </p>
                                     <div className="flex items-center flex-wrap ">
                                         <Link className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href={'/project/dropbox'}>
-                                            보러가기
-                                        </Link>
-                                        <svg 
-                                            className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" 
-                                            fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M5 12h14"></path>
-                                        <path d="M12 5l7 7-7 7"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="p-4 md:w-1/3">
-                            <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                <Image 
-                                    className="lg:h-48 md:h-36 w-full object-cover object-center" 
-                                    src="/img_project/todolist.png"  
-                                    width={720}
-                                    height={400}
-                                    alt="blog" />
-                                <div className="p-6">
-                                    <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-                                    <h1 className="title-font text-lg font-medium text-slate-900 dark:text-white mb-3">투두 리스트 (with supabase)</h1>
-                                    <p className="leading-relaxed mb-3 text-slate-500 dark:text-slate-400">
-                                        사용언어 : Next | 타입스크립트 <br />
-                                        사용기술 : 백엔드 서버 API
-                                    </p>
-                                    <div className="flex items-center flex-wrap ">
-                                        <Link className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0" href={'/project/todo-supabase'}>
                                             보러가기
                                         </Link>
                                         <svg 

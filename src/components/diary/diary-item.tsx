@@ -2,7 +2,6 @@
 import { getEmotionImage } from "@/utils/diary/get-emotion-image"; 
 import Button from "./button"; 
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function DiaryItem({ id, createdDate, emotionID, content }) {
 

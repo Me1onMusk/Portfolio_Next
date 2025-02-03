@@ -21,7 +21,7 @@ export default function Header({ accessToken, session }) {
     const onClickButton = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark')
     };
-
+    
     return (
         <>
         <header className="text-gray-600 body-font">

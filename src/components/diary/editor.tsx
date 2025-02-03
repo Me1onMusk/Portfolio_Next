@@ -43,7 +43,7 @@ export default function Editor({ initData, onSubmit }) {
             <section className="flex w-full flex-col mb-10 gap-5 justify-center"> 
                 <h4 className="flex font-bold text-2xl">오늘의 날짜</h4>
                 <input 
-                    className="flex"
+                    className="flex dark:bg-slate-800"
                     name="createdDate" 
                     type="date"
                     onChange={ onChangeInput } 
@@ -71,7 +71,7 @@ export default function Editor({ initData, onSubmit }) {
             <section className="flex w-full flex-col justify-center mb-10 gap-5">
                 <h4 className="font-bold text-2xl">오늘의 일기</h4> 
                 <textarea 
-                    className="min-h-80 min-w-80 dark:bg-white bg-slate-200 rounded-lg flex p-2"
+                    className="min-h-80 min-w-80 dark:bg-white dark:text-black bg-slate-200 rounded-lg flex p-2"
                     name="content" 
                     value={ input.content } 
                     onChange={ onChangeInput } 
