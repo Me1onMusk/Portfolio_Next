@@ -14,7 +14,7 @@ export default function Page() {
                     
                 </div>
             </div>
-                
+            
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-23 mx-auto flex flex-col">
                     <div className="lg:w-4/6 mx-auto">
@@ -44,17 +44,12 @@ export default function Page() {
                                 <p className="leading-relaxed text-lg mb-4 text-slate-500 dark:text-slate-400">
                                     - 대일고등학교 졸업 <br/> 
                                     - 대한민국 공군 병장 만기전역 <br/> 
+                                    - 대학교 소프트웨어학과 전공 & AI 부전공 <br/> 
                                     - 프론트엔드 개발자 인턴 <br/> 
                                     &nbsp; 회사 홈페이지 유지 보수 및 Next.js로 변환 작업 <br/>
-                                    &nbsp; TypeScript | React | Next.js | Node.js | Tailwind.CSS 사용
+                                    &nbsp; TypeScript | React | Next.js | Node.js | Tailwind.CSS 사용 <br/>
+                                    &nbsp; 팀원간 Github 협업 | Notion 사용
                                 </p>
-                                <a className="text-indigo-500 inline-flex items-center">Learn More
-                                    <svg 
-                                        fill="none" stroke="currentColor" strokeLinecap="round" 
-                                        strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </a>
                             </div>
                             
                         </div>
