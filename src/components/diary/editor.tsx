@@ -46,6 +46,7 @@ export default function Editor({ initData, onSubmit }) {
                     className="flex"
                     name="createdDate" 
                     type="date"
+                    onChange={ onChangeInput } 
                     value={ getStringDate(input.createdDate) } />
             </section>
             <section className="flex w-full flex-col justify-center mb-10">

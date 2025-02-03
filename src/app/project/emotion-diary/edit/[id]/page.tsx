@@ -24,10 +24,9 @@ export default function Page() {
 
     // 삭제 하기 //
     const onClickDelete = () => {
-        if (window.confirm("일기를 삭제할까요?")) {            //윈도우 팝업창 (T/F 반환) 
+        if (window.confirm("일기를 삭제할까요?")) {               //윈도우 팝업창 (T/F 반환) 
             onDelete(params.id);            
-            router.push('/project/emotion-diary');                
-                 //홈 이동 & 뒤로가기 방지  
+            router.replace('/project/emotion-diary');             //홈 이동 & 뒤로가기 방지  
         } 
     }; 
 
@@ -40,7 +39,7 @@ export default function Page() {
                 input.emotionID, 
                 input.content
             );
-            router.push('/project/emotion-diary');  
+            router.replace('/project/emotion-diary');           //홈 이동 & 뒤로가기 방지 
         };
     };
 
