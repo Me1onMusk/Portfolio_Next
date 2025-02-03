@@ -1,7 +1,7 @@
 
 import { useContext, useEffect, useState } from "react";
-import { DiaryStateContext } from "../project/emotion-diary/layout";
 import { useRouter } from "next/navigation";
+import { DiaryStateContext } from "../project/emotion-diary/DiaryProvider";
 
 export default function useDiary(id) {
 
