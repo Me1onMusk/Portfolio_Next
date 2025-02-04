@@ -67,7 +67,7 @@ async function ReviewList({bookId}:{bookId:string}) {
 }
 
 // ~/book/[id] // 
-export default function Page({ params }:{ params : { id : string } }) { 
+export default function Page({ params }: any) { 
     return ( 
         <div>
             <BookDetail bookId={params.id} />
