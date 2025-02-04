@@ -14,13 +14,13 @@ export default function EmotionItem({ emotionID, emotionName, isSelected, onClic
     // isSelected === true 면 EmotionItem_on_x 스타일, 아니면 기본 스타일
     const containerClasses = isSelected
         ? emotionColorMap[emotionID] // 선택된 상태 → on_x 스타일
-        : "bg-[#ffffff]";            // 기본(선택되지 않은) 상태
+        : "bg-[#ffffff] dark:bg-[#1e293b]";            // 기본(선택되지 않은) 상태
 
     return (
         <div
             className={`
                 ${containerClasses} 
-                flex flex-col m-5 gap-2 justify-center items-center bg-white dark:bg-slate-800
+                flex flex-col m-5 gap-2 justify-center items-center
                 rounded-3xl
                 p-2
                 cursor-pointer 
