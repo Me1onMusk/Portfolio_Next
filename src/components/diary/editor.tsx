@@ -36,7 +36,7 @@ export default function Editor({ initData, onSubmit }) {
             ...input,
             [name] : value
         });
-    };
+    }; 
 
     return(
         <>

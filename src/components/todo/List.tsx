@@ -5,9 +5,7 @@ import ToDoItem from "./ToDo-item";
 const List = ({ todos, onUpdate, onDelete}) => { 
     const [search, setSearch] = useState("");
 
-    const onChangeSearch = (e) => {
-        setSearch(e.target.value);
-    };
+    const onChangeSearch = (e) => { setSearch(e.target.value); };
 
     // 데이터 찾기 // 
     const getFilteredData = () => {
@@ -20,7 +18,7 @@ const List = ({ todos, onUpdate, onDelete}) => {
  
     const filteredToDos = getFilteredData();
     
-    const {totalCount, doneCount, notDoneCount} = useMemo(() => {
+    const { totalCount, doneCount, notDoneCount } = useMemo(() => {
         const totalCount = todos.length;
         const doneCount = todos.filter((todo) => todo.isDone).length;
         const notDoneCount = totalCount - doneCount;

@@ -7,7 +7,7 @@ import { createReviewAction } from '@/app/actions/create-review-action';
 
 // 리뷰 작성하기 // 
 export function ReviewEditor({ bookId }:{ bookId : string }) {
-    const [state, formAction, isPending] = useActionState(createReviewAction, null); 
+    const [ state, formAction, isPending ] = useActionState(createReviewAction, null); 
     
     useEffect(() => {
         if(state && !state.status)
@@ -16,25 +16,23 @@ export function ReviewEditor({ bookId }:{ bookId : string }) {
 
     return (
         <section>
-            <form  action={formAction}> 
+            <form  action={ formAction }> 
                 <input 
                     name='bookId' 
-                    value={bookId} hidden readOnly />
+                    value={ bookId } hidden readOnly />
                 <textarea 
-                    disabled={isPending}
+                    disabled={ isPending }
                     required name='content' 
                     placeholder='리뷰 내용' />
                 <div>
                     <input 
-                        disabled={isPending}
+                        disabled={ isPending }
                         required name='author' 
                         placeholder='작성자' />
                     <button 
-                        disabled={isPending} 
+                        disabled={ isPending } 
                         type='submit'>
-                        {
-                            isPending ? "..." : "작성하기"
-                        }
+                        { isPending ? "..." : "작성하기" }
                     </button>
                 </div>
             </form>

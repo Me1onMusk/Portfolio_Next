@@ -6,6 +6,7 @@ import Header from "@/components/todo/Header";
 import List from "@/components/todo/List";
 import { useCallback, useReducer, useRef } from "react";
 
+// Mock 데이터 // 
 const mockData = [
     { 
         id: 0,
@@ -32,9 +33,9 @@ function reducer(state, action) {
         case "CREATE":
             return [action.data, ...state];
         case "UPDATE":
-                return state.map((item) => item.id === action.targetID ? {...item, isDone: !item.isDone} : item);
+            return state.map((item) => item.id === action.targetID ? {...item, isDone: !item.isDone} : item);
         case "DELETE":
-                return state.filter((item) => item.id !== action.targetID);
+            return state.filter((item) => item.id !== action.targetID);
         default: 
             return state;
     }
@@ -74,8 +75,8 @@ export default function Page() {
     return (
         <div>
             <Header />
-            <Editor onCreate = {onCreate} />
-            <List todos = {todos} onUpdate={onUpdate} onDelete={onDelete} />
+            <Editor onCreate = { onCreate } />
+            <List todos = { todos } onUpdate={ onUpdate } onDelete={ onDelete } />
         </div>
     );
 };

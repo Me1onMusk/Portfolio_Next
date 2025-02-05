@@ -13,16 +13,14 @@ export default function Modal({children}:{children:ReactNode}) {
     useEffect(() => {
         if(!dialogRef.current?.open){
             dialogRef.current?.showModal();
-            dialogRef.current?.scrollTo(
-                { top: 0 }
-            )
+            dialogRef.current?.scrollTo({ top: 0 })
         }
     }, []);
     
     return (
         createPortal(
             <dialog 
-                onClose={()=>{router.back()}}
+                onClose={ ()=>{router.back()} }
                 onClick={(e) => {
                     // 모달의 배경이 클릭이되면 -> 뒤로가기 
                     if((e.target as any).nodeName === 'DIALOG')

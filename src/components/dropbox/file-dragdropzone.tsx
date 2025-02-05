@@ -15,11 +15,9 @@ export default function FileDragDropZone() {
     const uploadImageMutation = useMutation({
         mutationFn: uploadFile,
         onSuccess: () => {
-            queryClient.invalidateQueries({
-                queryKey:['images']
-            });
+            queryClient.invalidateQueries({ queryKey:['images'] });
         }
-    });
+    }); 
 
     // 파일 드롭이 발생하면 실행 // 
     const onDrop = useCallback( async(acceptedFiles) => {

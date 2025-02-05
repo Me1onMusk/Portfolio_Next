@@ -11,14 +11,12 @@ interface AuthProps {
 
 const Auth: React.FC<AuthProps> = ({ path }) => { 
 
-    const [ view, setView ] = useState("SIGNIN");
+    const [ view, setView ] = useState("SIGNIN"); 
 
     return (
         <main 
             className="flex justify-center items-center mx-auto container px-5 py-32 md:flex-row">
-            {
-                view === 'SIGNIN' ? (<SignIn setView={setView} path={path} />) : (<SignUp setView={setView} path={path} />)
-            }
+            { view === 'SIGNIN' ? (<SignIn setView={setView} path={path} />) : (<SignUp setView={setView} path={path} />) }
         </main>
     );
 };

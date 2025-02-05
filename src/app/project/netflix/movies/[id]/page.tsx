@@ -10,9 +10,7 @@ export async function generateMetadata({ params, searchParams }) {
         {
             title: movie!.title,
             description: movie!.overview,
-            openGraph: {
-                images: [movie!.image_url]
-            }
+            openGraph: { images: [movie!.image_url] }
         }
     );
 };
@@ -31,9 +29,7 @@ export default async function MovieDetail({params}) {
                             <UI movie = {movie} />
                         </div>
                     ) :
-                    (
-                        <div>Movie does not exists</div>
-                    )
+                    ( <div>Movie does not exists</div> )
                 }
             </main>
         </div>

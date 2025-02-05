@@ -23,13 +23,10 @@ export default function MovieCardList() {
         getNextPageParam: (lastPage) => lastPage.page ? lastPage.page + 1 : null,
     });
 
-    const { ref, inView } = useInView({
-        threshold: 0
-    });
+    const { ref, inView } = useInView({ threshold: 0 });
 
     useEffect(() => {
-        if (inView && hasNextPage && !isFetching && !isFetchingNextPage)
-          fetchNextPage();
+        if (inView && hasNextPage && !isFetching && !isFetchingNextPage) fetchNextPage();
     }, [inView, hasNextPage]);
 
     return (
@@ -44,9 +41,7 @@ export default function MovieCardList() {
                     <div ref={ref}></div>
                 </>
             }
-            {
-                (isFetching || isFetchingNextPage) && <p>Loading...</p>
-            }
+            { (isFetching || isFetchingNextPage) && <p>Loading...</p> }
         </div>
     );
 };

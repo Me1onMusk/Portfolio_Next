@@ -6,13 +6,10 @@ const Editor = ({onCreate}) => {
     const [content, setContent] = useState("");
     const contentRef = useRef(null);
 
-    const onChangeContent = (e) => {
-        setContent(e.target.value);
-    };
+    const onChangeContent = (e) => { setContent(e.target.value); };
 
-    const onKeyDown = (e) => {
-        if(e.keyCode === 13) //엔터 누르면 추가 
-            onSubmit(); 
+    const onKeyDown = (e) => { //엔터 누르면 추가 
+        if(e.keyCode === 13) onSubmit(); 
     }
     
     const onSubmit = () => {

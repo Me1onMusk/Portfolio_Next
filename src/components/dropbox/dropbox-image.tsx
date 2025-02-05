@@ -10,9 +10,7 @@ export default function DropboxImage({ image }) {
     const deleteFileMutation = useMutation({
         mutationFn: deleteFile,
         onSuccess: () => {
-            queryClient.invalidateQueries({
-                queryKey: ['images']
-            })
+            queryClient.invalidateQueries({ queryKey: ['images'] })
         }
     });
     
@@ -21,16 +19,14 @@ export default function DropboxImage({ image }) {
             <div>
                 <img
                     className="w-full aspect-square rounded-2xl" 
-                    src={getImageURL(image.name)} />
+                    src={ getImageURL(image.name) } />
             </div>
-
-            <div>
-                {image.name}
-            </div>
+            
+            <div>{ image.name }</div> 
 
             <div className="absolute top-4 right-4">
                 <button 
-                    onClick={() => deleteFileMutation.mutate(image.name)}>
+                    onClick={ () => deleteFileMutation.mutate(image.name) }>
                     {
                         deleteFileMutation.isPending ? 
                         (<p>Loading...</p>) :

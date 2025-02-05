@@ -43,7 +43,6 @@ export default function ChatScreen() {
         },
         onSuccess: () => {
             setMessage("")
-            
             getAllMessageQuery.refetch()
         }
     });
@@ -93,7 +92,7 @@ export default function ChatScreen() {
                         placeholder="메세지 입력"/>
                     <button
                         className="dark:bg-blue-500 bg-blue-300 rounded-lg p-2 flex items-center" 
-                        onClick={() => sendMessageMutation.mutate()} >
+                        onClick={ () => sendMessageMutation.mutate() } >
                         { sendMessageMutation.isPending ? <p>Loading...</p> : <span>전송</span> }
                         <IoIosSend />
                     </button>

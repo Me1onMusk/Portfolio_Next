@@ -20,9 +20,7 @@ export default function Page() {
             title: 'New ToDo',
             completed: false
         }),
-        onSuccess: () => {
-            todosQuery.refetch();
-        }
+        onSuccess: () => { todosQuery.refetch(); }
     });
     
     return(
@@ -35,12 +33,8 @@ export default function Page() {
                         className="rounded-lg w-full h-10 pl-2 pr-2 border-black border bg-white text-black dark:bg-white dark:text-black"
                         onChange={ e => setSearchInput(e.target.value) }
                         placeholder="검색어 입력" />
-                    {
-                        todosQuery.isPending && <p>Loading...</p>
-                    }
-                    {
-                        todosQuery.data && todosQuery.data.map((todo) => <ToDo key={todo.id} todo={todo} />)
-                    }
+                    { todosQuery.isPending && <p>Loading...</p> }
+                    { todosQuery.data && todosQuery.data.map((todo) => <ToDo key={todo.id} todo={todo} />) }
                     <button
                         className="my-10 border p-2 rounded-lg border-black dark:border-white" 
                         onClick={ () => createToDoMutation.mutate() } >

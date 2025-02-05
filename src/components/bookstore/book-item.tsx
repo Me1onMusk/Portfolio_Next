@@ -16,16 +16,16 @@ export default function BookItem({
     return (
         <Link href={`http://localhost:3000/project/bookstore/book/${id}`} >
             <Image 
-                src={coverImgUrl}
-                width={80}
-                height={105}
-                alt={`도서 ${title}의 표지 이미지`} />
+                src={ coverImgUrl }
+                width={ 80 }
+                height={ 105 }
+                alt={ `도서 ${title}의 표지 이미지` } />
             <div>
-                <div>{title}</div>
-                <div>{subTitle}</div>
+                <div>{ title }</div>
+                <div>{ subTitle }</div>
                 <br />
                 <div>
-                    {author} | {publisher}
+                    { author } | { publisher }
                 </div>
             </div>
         </Link>

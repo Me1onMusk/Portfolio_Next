@@ -37,8 +37,8 @@ export default function Header() {
                 <input 
                     className="bg-transparent" 
                     placeholder="Search Movies"
-                    value={searchTerm}
-                    onChange={handleSearchChange} />  
+                    value={ searchTerm }
+                    onChange={ handleSearchChange } />  
             </div>
         </header>
     );
