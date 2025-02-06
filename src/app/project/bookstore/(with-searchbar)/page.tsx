@@ -11,23 +11,20 @@ export const metadata: Metadata = {
     openGraph : {
         title: "한입 북스",
         description : "한입 북스에 등록된 도서를 만나보세요",
-        images : [
-            '/thumbnail.png'
-        ]
+        images : [ '/thumbnail.png' ]
     }
 };
 
 // 모든 책 출력 함수 // 
 async function AllBooks() {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`);
+    
     if(!response.ok) return <div>오류가 발생했습니다...</div> 
     const allBooks : BookData[] = await response.json(); 
 
     return(
         <div>
-            {
-                allBooks.map((book) => <BookItem key={book.id} {...book} />) 
-            }
+            { allBooks.map((book) => <BookItem key={book.id} {...book} />) }
         </div>
     );
 };
@@ -40,9 +37,7 @@ async function RecommandBooks() {
 
     return (
         <div>
-            {
-                recommandBooks.map((book) => <BookItem key={book.id} {...book} />) 
-            }
+            { recommandBooks.map((book) => <BookItem key={book.id} {...book} />) }
         </div>
     );
 };

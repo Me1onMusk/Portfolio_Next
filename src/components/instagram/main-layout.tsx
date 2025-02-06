@@ -5,7 +5,7 @@ export default function MainLayout({ children }) {
     return (
         <div className="m-10 flex ">
             <SideBar />
-            {children}
+            { children }
         </div>
     );
 };
