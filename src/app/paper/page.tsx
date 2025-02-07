@@ -23,9 +23,9 @@ export default function Page() {
                             <div className="bg-gray-100 p-6 rounded-lg">
                                 <Image 
                                     className="object-cover w-full h-40"
-                                    src={'/img_papers/react.png'}
-                                    width={720}
-                                    height={400}
+                                    src={ '/img_papers/react.png' }
+                                    width={ 720 }
+                                    height={ 400 }
                                     alt="react" />
                                 <h3 className="tracking-widest text-pink-500 dark:text-pink-500 text-xs font-medium title-font">인프런</h3>
                                 <h2 className="text-lg text-gray-900 dark:text-gray-900 font-medium title-font mb-4">리액트</h2>
@@ -38,9 +38,9 @@ export default function Page() {
                             <div className="bg-gray-100 p-6 rounded-lg">
                                 <Image
                                     className="object-cover w-full h-40"
-                                    src={'/img_papers/js.png'}
-                                    width={720}
-                                    height={400}
+                                    src={ '/img_papers/js.png' }
+                                    width={ 720 }
+                                    height={ 400 }
                                     alt="react" />
                                 <h3 className="tracking-widest text-pink-500 dark:text-pink-500 text-xs font-medium title-font">네이버 부스트코스</h3>
                                 <h2 className="text-lg text-gray-900 dark:text-gray-900 font-medium title-font mb-4">자바스크립트</h2>
@@ -53,9 +53,9 @@ export default function Page() {
                             <div className="bg-gray-100 p-6 rounded-lg">
                                 <Image
                                     className="object-cover w-full h-40"
-                                    src={'/img_papers/github.png'}
-                                    width={720}
-                                    height={400}
+                                    src={ '/img_papers/github.png' }
+                                    width={ 720 }
+                                    height={ 400 }
                                     alt="react" />
                                 <h3 className="tracking-widest text-pink-500 dark:text-pink-500 text-xs font-medium title-font">네이버 부스트코스</h3>
                                 <h2 className="text-lg text-gray-900 dark:text-gray-900 font-medium title-font mb-4">깃허브</h2>
